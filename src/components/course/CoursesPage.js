@@ -33,12 +33,12 @@ class CoursePage extends Component {
 				<h1>Courses</h1>
 
 				<input type="text"
-					   onChange={ this.onTitleChange }
-					   value={ this.state.course.title }
+					onChange={ this.onTitleChange }
+					value={ this.state.course.title }
 				/>
 
 				<input type="submit"
-					   onClick={ this.onClickSave }
+					onClick={ this.onClickSave }
 				/>
 			</div>
 		);

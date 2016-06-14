@@ -1,6 +1,8 @@
+import * as types from '../actions/actionTypes';
+
 const courseReducer = (state = [], { type, payload }) => {
 	switch(type) {
-		case 'CREATE_COURSE':
+		case types.CREATE_COURSE:
 			return [...state,
 				{ ...payload.course }
 			];

@@ -1,8 +1,15 @@
 'use strict';
 
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 
-class CoursePage extends Component {
+import { createCourse } from '../../actions/courseActions';
+
+export class CoursePage extends Component {
+	static propTypes = {
+		onTitleChange: PropTypes.func.isRequired
+	}
+
 	constructor(props, context) {
 		super(props, context);
 
@@ -24,7 +31,7 @@ class CoursePage extends Component {
 	}
 
 	onClickSave() {
-		alert(`Saving ${this.state.course.title}`);
+		this.props.onTitleChange(this.state.course);
 	}
 
 	render() {
@@ -45,4 +52,12 @@ class CoursePage extends Component {
 	}
 }
 
-export default CoursePage;
+const mapStateToProps = ({ courses }) => ({
+	courses
+});
+
+const mapDispatchToProps = (dispatch) => ({
+	onTitleChange: (course) => dispatch(createCourse(course))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CoursePage);

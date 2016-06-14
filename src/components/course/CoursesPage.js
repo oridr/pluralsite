@@ -1,13 +1,15 @@
 'use strict';
 
 import React, { Component, PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { createCourse } from '../../actions/courseActions';
+import * as courseActions from '../../actions/courseActions';
 
 export class CoursePage extends Component {
 	static propTypes = {
-		onTitleChange: PropTypes.func.isRequired
+		courses: PropTypes.array.isRequired,
+		actions: PropTypes.object.isRequired
 	}
 
 	constructor(props, context) {
@@ -31,13 +33,25 @@ export class CoursePage extends Component {
 	}
 
 	onClickSave() {
-		this.props.onTitleChange(this.state.course);
+		this.props.actions.createCourse(this.state.course);
+	}
+
+	courseRow(course, index) {
+		return (
+			<li key={ index }>{ course.title }</li>
+		);
 	}
 
 	render() {
 		return (
 			<div>
 				<h1>Courses</h1>
+
+				<ul>
+					{
+						this.props.courses.map(this.courseRow)
+					}
+				</ul>
 
 				<input type="text"
 					onChange={ this.onTitleChange }
@@ -57,7 +71,7 @@ const mapStateToProps = ({ courses }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	onTitleChange: (course) => dispatch(createCourse(course))
+	actions: bindActionCreators(courseActions, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoursePage);

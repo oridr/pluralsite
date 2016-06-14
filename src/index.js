@@ -11,6 +11,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store = configureStore();
 
+store.subscribe(() => console.log(store.getState())); // eslint-disable-line no-console
+
 render(
 	<Provider store={ store }>
 		<Router history={ browserHistory } routes={ routes } />

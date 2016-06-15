@@ -14,26 +14,6 @@ export class CoursePage extends Component {
 
 	constructor(props, context) {
 		super(props, context);
-
-		this.state = {
-			course: {
-				title: ''
-			}
-		};
-
-		this.onTitleChange = this.onTitleChange.bind(this);
-
-		this.onClickSave = this.onClickSave.bind(this);
-	}
-
-	onTitleChange(event) {
-		const course = this.state.course;
-		course.title = event.target.value;
-		this.setState({ course });
-	}
-
-	onClickSave() {
-		this.props.actions.createCourse(this.state.course);
 	}
 
 	courseRow(course, index) {
@@ -52,15 +32,6 @@ export class CoursePage extends Component {
 						this.props.courses.map(this.courseRow)
 					}
 				</ul>
-
-				<input type="text"
-					onChange={ this.onTitleChange }
-					value={ this.state.course.title }
-				/>
-
-				<input type="submit"
-					onClick={ this.onClickSave }
-				/>
 			</div>
 		);
 	}

@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as courseActions from '../../actions/courseActions';
+import CourseList from './CourseList';
 
 export class CoursePage extends Component {
 	static propTypes = {
@@ -16,22 +17,17 @@ export class CoursePage extends Component {
 		super(props, context);
 	}
 
-	courseRow(course, index) {
-		return (
-			<li key={ index }>{ course.title }</li>
-		);
+	componentWillMount() {
+		this.props.actions.loadCourses();
 	}
 
 	render() {
+		const { courses } = this.props;
 		return (
 			<div>
 				<h1>Courses</h1>
 
-				<ul>
-					{
-						this.props.courses.map(this.courseRow)
-					}
-				</ul>
+				<CourseList courses={ courses } />
 			</div>
 		);
 	}

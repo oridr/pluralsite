@@ -9,9 +9,15 @@ import routes from './routes';
 import 'styles/styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { loadCourses } from './actions/courseActions';
+import { loadAuthors } from './actions/authorActions';
+
 const store = configureStore();
 
 store.subscribe(() => console.log(store.getState())); // eslint-disable-line no-console
+
+store.dispatch(loadCourses());
+store.dispatch(loadAuthors());
 
 render(
 	<Provider store={ store }>

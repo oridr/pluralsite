@@ -7,6 +7,8 @@ import * as actions from '../../../actions/courseActions';
 
 export class ManageCoursePage extends Component {
 	static propTypes = {
+		course: PropTypes.object.isRequired,
+		authors: PropTypes.array.isRequired
 	};
 
 	constructor(props, context) {
@@ -14,11 +16,11 @@ export class ManageCoursePage extends Component {
 	}
 
 	render() {
-		const { course } = this.props;
+		const { course, authors } = this.props;
 
 		return (
 			<CourseForm
-				allAuthors={ [] }
+				allAuthors={ authors }
 				course={ course }
 				onChange={ () => {} }
 				onSave={ () => {} }
@@ -28,8 +30,12 @@ export class ManageCoursePage extends Component {
 	}
 }
 
-const mapStateToProps = ({ courses }, { params }) => ({
-	course: courses.find((course) => course.id = params.id ) || null
+const mapStateToProps = ({ courses, authors }, { params }) => ({
+	course: courses.find((course) => course.id = params.id ) || null,
+	authors: authors.map(({ id, firstName, lastName }) => ({
+		value: id,
+		text: `${firstName} ${lastName}`
+	}))
 });
 
 const mapDispatchToProps = (dispatch) => ({

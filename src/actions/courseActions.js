@@ -8,11 +8,9 @@ export const loadCoursesSuccess = (courses) => ({
 	}
 });
 
-export const loadCourses = () => (dispatch) => {
-	return courseApi
-		.getAllCourses()
-		.then((courses) => dispatch(loadCoursesSuccess(courses)))
-		.catch((error) => {
-			throw(error);
-		});
-};
+export const loadCourses = () => (dispatch) => courseApi
+	.getAllCourses()
+	.then((courses) => dispatch(loadCoursesSuccess(courses)))
+	.catch((error) => {
+		throw(error);
+	});

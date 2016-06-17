@@ -1,29 +1,39 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import CourseForm from './CourseForm';
 
 import * as actions from '../../../actions/courseActions';
 
 export class ManageCoursePage extends Component {
-	static propTypes = {};
+	static propTypes = {
+	};
 
-    constructor(props, context) {
-        super(props, context);
-    }
+	constructor(props, context) {
+		super(props, context);
+	}
 
-    render() {
-		const { params: { id } } = this.props;
+	render() {
+		const { course } = this.props;
 
-        return (
-			<h1>{ id }</h1>
-        );
-    }
+		return (
+			<CourseForm
+				allAuthors={ [] }
+				course={ course }
+				onChange={ () => {} }
+				onSave={ () => {} }
+				errors={ {} }
+			/>
+		);
+	}
 }
 
-const mapStateToProps = (state, ownProps) => ({});
+const mapStateToProps = ({ courses }, { params }) => ({
+	course: courses.find((course) => course.id = params.id ) || null
+});
 
 const mapDispatchToProps = (dispatch) => ({
-    actions: bindActionCreators(actions, dispatch)
+	actions: bindActionCreators(actions, dispatch)
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage);

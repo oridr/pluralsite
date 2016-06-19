@@ -11,8 +11,14 @@ export class ManageCoursePage extends Component {
 		authors: PropTypes.array.isRequired
 	};
 
+	static contextTypes = {
+		router: PropTypes.object
+	};
+
 	constructor(props, context) {
 		super(props, context);
+
+		console.log(props);
 
 		this.state = {
 			course: { ...this.props.course },
@@ -36,6 +42,7 @@ export class ManageCoursePage extends Component {
 	saveCourse(e) {
 		e.preventDefault();
 		this.props.actions.saveCourse(this.state.course);
+		this.context.router.push('/courses');
 	}
 
 	render() {
@@ -44,7 +51,7 @@ export class ManageCoursePage extends Component {
 		return (
 			<CourseForm
 				allAuthors={ authors }
-				course={ course || {} }
+				course={ course }
 				onChange={ this.updateCourseState }
 				onSave={ this.saveCourse }
 				errors={ this.state.errors }
@@ -54,7 +61,7 @@ export class ManageCoursePage extends Component {
 }
 
 const mapStateToProps = ({ courses, authors }, { params }) => ({
-	course: courses.find((course) => course.id = params.id ) || null,
+	course: courses.find((course) => course.id === params.id ) || {},
 	authors: authors.map(({ id, firstName, lastName }) => ({
 		value: id,
 		text: `${firstName} ${lastName}`

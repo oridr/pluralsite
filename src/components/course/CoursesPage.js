@@ -22,7 +22,7 @@ export class CoursePage extends Component {
 			<div>
 				<h1>Courses</h1>
 
-				<Link to="/course">Add Course</Link>
+				<Link to="course">Add Course</Link>
 
 				<CourseList courses={ courses } />
 			</div>

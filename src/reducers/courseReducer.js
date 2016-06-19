@@ -7,7 +7,7 @@ const courseReducer = (state = initialState.courses, { type, payload }) => {
 			return payload.courses;
 
 		case types.UPDATE_COURSE_SUCCESS:
-			const courseIndex = state.findIndex((course) => course.id = payload.course.id);
+			const courseIndex = state.findIndex((course) => course.id === payload.course.id);
 
 			return [
 				...state.slice(0, courseIndex),

@@ -12,7 +12,8 @@ const routes = (
 	<Route path="/" component={ App }>
 		<IndexRoute component={ HomePage } />
 		<Route path="about" component={ AboutPage } />
-		<Route path="course" component={ CoursesPage } />
+		<Route path="courses" component={ CoursesPage } />
+		<Route path="course" component={ ManageCoursePage } />
 		<Route path="course/:id" component={ ManageCoursePage } />
 	</Route>
 );

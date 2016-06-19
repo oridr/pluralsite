@@ -7,12 +7,35 @@ import * as actions from '../../../actions/courseActions';
 
 export class ManageCoursePage extends Component {
 	static propTypes = {
-		course: PropTypes.object.isRequired,
+		course: PropTypes.object,
 		authors: PropTypes.array.isRequired
 	};
 
 	constructor(props, context) {
 		super(props, context);
+
+		this.state = {
+			course: { ...this.props.course },
+			errors: {}
+		};
+
+		this.updateCourseState = this.updateCourseState.bind(this);
+		this.saveCourse = this.saveCourse.bind(this);
+	}
+
+	updateCourseState(e) {
+		const { name, value } = e.target;
+		const course = {
+			...this.state.course,
+			[name]: value
+		};
+
+		return this.setState({ course });
+	}
+
+	saveCourse(e) {
+		e.preventDefault();
+		this.props.actions.saveCourse(this.state.course);
 	}
 
 	render() {
@@ -21,10 +44,10 @@ export class ManageCoursePage extends Component {
 		return (
 			<CourseForm
 				allAuthors={ authors }
-				course={ course }
-				onChange={ () => {} }
-				onSave={ () => {} }
-				errors={ {} }
+				course={ course || {} }
+				onChange={ this.updateCourseState }
+				onSave={ this.saveCourse }
+				errors={ this.state.errors }
 			/>
 		);
 	}

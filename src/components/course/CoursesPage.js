@@ -2,6 +2,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 import CourseList from './CourseList';
 
@@ -16,9 +17,12 @@ export class CoursePage extends Component {
 
 	render() {
 		const { courses } = this.props;
+
 		return (
 			<div>
 				<h1>Courses</h1>
+
+				<Link to="/course">Add Course</Link>
 
 				<CourseList courses={ courses } />
 			</div>

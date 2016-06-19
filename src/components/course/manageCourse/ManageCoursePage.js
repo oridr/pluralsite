@@ -18,8 +18,6 @@ export class ManageCoursePage extends Component {
 	constructor(props, context) {
 		super(props, context);
 
-		console.log(props);
-
 		this.state = {
 			course: { ...this.props.course },
 			errors: {}
@@ -27,6 +25,16 @@ export class ManageCoursePage extends Component {
 
 		this.updateCourseState = this.updateCourseState.bind(this);
 		this.saveCourse = this.saveCourse.bind(this);
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if(this.props.course.id === nextProps.course.id) {
+			return;
+		}
+
+		this.setState({
+			course: { ...nextProps.course }
+		});
 	}
 
 	updateCourseState(e) {
@@ -46,7 +54,8 @@ export class ManageCoursePage extends Component {
 	}
 
 	render() {
-		const { course, authors } = this.props;
+		const { authors } = this.props;
+		const { course } = this.state;
 
 		return (
 			<CourseForm
@@ -61,7 +70,7 @@ export class ManageCoursePage extends Component {
 }
 
 const mapStateToProps = ({ courses, authors }, { params }) => ({
-	course: courses.find((course) => course.id === params.id ) || {},
+	course: courses.find((course) => course.id === params.id ) || { id: '', title: '', watchHref: '', authorId: '', length: '', category: '' },
 	authors: authors.map(({ id, firstName, lastName }) => ({
 		value: id,
 		text: `${firstName} ${lastName}`

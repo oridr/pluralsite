@@ -1,3 +1,3 @@
 # pluralsite
 
-On a horse with no name
+all we are is dust in the wind

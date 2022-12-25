@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+  gw:
+    image: 524950183868.dkr.ecr.us-east-1.amazonaws.com/codeocean/gw:capture-results
+  worker:
+    image: 524950183868.dkr.ecr.us-east-1.amazonaws.com/codeocean/worker:capture-results
+    environment:
+      CONFIG_Storage_DatasetsBucket: "codeocean-dev-temp"
+  wapi:
+    image: 524950183868.dkr.ecr.us-east-1.amazonaws.com/codeocean/wapi:capture-results
+  comp:
+    image: 524950183868.dkr.ecr.us-east-1.amazonaws.com/codeocean/comp:capture-results

@@ -1,0 +1,12 @@
+version: '2.1'
+
+services:
+  file-proxy:
+    image: 524950183868.dkr.ecr.us-east-1.amazonaws.com/codeocean/file-proxy:datasets_files
+  
+  gw:
+    image: 524950183868.dkr.ecr.us-east-1.amazonaws.com/codeocean/gw:dataset_file_access
+
+  web:
+    image: 524950183868.dkr.ecr.us-east-1.amazonaws.com/codeocean/web:new-upload-system
+

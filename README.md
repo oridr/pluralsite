@@ -2,4 +2,4 @@
 
 same old song
 just a drop of water
-in an endless
+in an endless sea

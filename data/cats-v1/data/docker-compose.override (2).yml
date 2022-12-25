@@ -1,5 +1,0 @@
-version: '2.1'
-
-services:
-  gw:
-    image: 524950183868.dkr.ecr.us-east-1.amazonaws.com/codeocean/gw:dataset_file_access

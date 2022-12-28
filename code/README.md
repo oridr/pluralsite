@@ -1,4 +1,4 @@
-There once was a ship that put to sea
-The name of the ship was the Billy of Tea
-The winds blew up, her bow dipped down
-Oh blow, my bully boys, blow (huh)
+She'd not been two weeks from shore
+When down on her a right whale bore
+The captain called all hands and swore
+He'd take that whale in tow (huh)

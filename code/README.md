@@ -1,4 +1,4 @@
-Before the boat had hit the water
-The whale's tail came up and caught her
-All hands to the side, harpooned and fought her
-When she dived down low (huh)
+No line was cut, no whale was freed
+The captain's mind was not of greed
+And he belonged to the Whaleman's creed
+She took that ship in tow (huh)

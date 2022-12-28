@@ -1,2 +1,4 @@
-Soon may the Wellerman come To bring us sugar and tea and rum One day, when the tonguing is done We'll take our leave and go
-
+There once was a ship that put to sea
+The name of the ship was the Billy of Tea
+The winds blew up, her bow dipped down
+Oh blow, my bully boys, blow (huh)

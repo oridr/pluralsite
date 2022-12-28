@@ -1,4 +1,2 @@
-She'd not been two weeks from shore
-When down on her a right whale bore
-The captain called all hands and swore
-He'd take that whale in tow (huh)
+Soon may the Wellerman come To bring us sugar and tea and rum One day, when the tonguing is done We'll take our leave and go
+
